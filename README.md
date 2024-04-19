@@ -1,6 +1,6 @@
 # Kformer_code
 
-To create embedding using Owl2Vec, use the github link: https://github.com/KRR-Oxford/OWL2Vec-Star and follow the Readme file. For this model, hermit axiom reasoner was used to created the embeddings with an vector size of 10 and 100. The embeddings can be found in the OWL2Vec_Embeddings folder. 
+To create embedding using Owl2Vec, use the github link: https://github.com/KRR-Oxford/OWL2Vec-Star and follow the Readme file. For this model, hermit axiom reasoner was used to created the embeddings with an vector size of 10 and 100. The embeddings can be found in the Owl2Vec_embeddings folder. 
 
 
 Model Knowledge Injection
