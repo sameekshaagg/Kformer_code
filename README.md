@@ -28,3 +28,27 @@ fairseq-train $DATA_DIR \
     --dropout 0.1 --attention-dropout 0.1 --weight-decay 0.01 \
     --batch-size $MAX_SENTENCES --update-freq $UPDATE_FREQ \
     --max-update $TOTAL_UPDATES --log-format simple --log-interval 1
+
+    
+#to run the model, use this code
+
+
+export LR=0.00001
+export WARMUP_UPDATES=150
+export MAX_UPDATES=100
+export BSZ=16
+export SEED=42
+CUDA_VISIBLE_DEVICES=0 fairseq-train --ddp-backend=legacy_ddp \
+    (file path to the databin) \
+    --user-dir (path to the folder of the task) --restore-file (path to the best checkpoint) \
+    --reset-optimizer --reset-dataloader --reset-meters --no-epoch-checkpoints --no-last-checkpoints \
+    --no-save-optimizer-state --best-checkpoint-metric accuracy --maximize-best-checkpoint-metric \
+    --task sentiment_analysis --init-token 0 --bpe gpt2 --arch roberta_base --max-positions 512 \
+    --dropout 0.1 --attention-dropout 0.1 --weight-decay 0.01 --criterion sentence_ranking \
+    --num-classes 3 --optimizer adam --adam-betas '(0.9, 0.98)' --adam-eps 1e-06 --clip-norm 0.0 \
+    --lr-scheduler polynomial_decay --lr $LR --warmup-updates $WARMUP_UPDATES --total-num-update $MAX_UPDATES \
+    --batch-size $BSZ --max-update $MAX_UPDATES --log-format simple --log-interval 25 --seed $SEED \
+    --save-dir (path where you want to save the model)
+    --knowledge_layer 5 7
+
+
