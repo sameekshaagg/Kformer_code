@@ -8,6 +8,8 @@ Model Knowledge Injection
 Use the github link: https://github.com/zjunlp/Kformer to get the code for Kformer. We have built the code for laptop domain. In the Model_injection folder, test_laptop.py can be used to run the task. The laptop folder needs to be placed in fairseq/examples/roberta as a folder so that the task can be registered. This code is unable to register the task with Roberta. gpt2_bpe has the dict file which is used by Roberta to pre-train the model. 
 
 #this code can be used to pre-train the model in the terminal, you will need to update the folders accordingly.
+
+
 TOTAL_UPDATES=125000    # Total number of training steps
 WARMUP_UPDATES=10000    # Warmup the learning rate over this many updates
 PEAK_LR=0.0005          # Peak learning rate, adjust as needed
